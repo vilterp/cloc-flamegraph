@@ -1,0 +1,2 @@
+#!bash
+cloc --vcs=git --by-file --csv | awk -F, 'NR > 1 && $1 !~ /^SUM/ {gsub("/", ";", $2); print $2 " " $5}' | flamegraph.pl
